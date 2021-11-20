@@ -227,6 +227,21 @@ int main(int argc, char const* argv[])
 	btea(enc_data, -8, key);
 	
 	puts((char*)enc_data);
+
+	//另一个例子 这个没问题，且解决了我对加密文本的输入该怎么弄的疑惑
+	uint32_t cipher[] = { 0, 0 };
+	char cipher1[] = "Bingo!\x02\x02";
+
+	int i = 0;
+	uint32_t key[] = { 0xE0C7E0C7, 0xC6F1D3D7, 0xC6D3C6D3, 0xC4D0D2CE };
+
+	for (i = 0; i < 6; i++)
+	{
+		cipher1[i] ^= 0x17;
+	}
+
+	memcpy(cipher, cipher1, 8);
+	btea(cipher, 2, key);
 	
 	return 0;
 }
