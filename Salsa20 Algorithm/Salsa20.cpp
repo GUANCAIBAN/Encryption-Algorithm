@@ -21,7 +21,7 @@ void setIVVector(const unsigned char* vector)
 
 void setKey(const unsigned char* key)
 {
-    static const char constants[] = "expand 32-byte k";
+    static const char constants[] = "expand 32-byte k"; // ³£Á¿
 
     if (key == nullptr)
         return;
