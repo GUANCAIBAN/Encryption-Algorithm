@@ -155,12 +155,13 @@ void decrypt_message(const char* p_src, char* p_dest, size_t data_size)
 int main() 
 {
     char* s; 
-    char sa[18]  = "abcdefghijilkyoui";
-    s = sa;
+    char a[6] = "hello";
+    //std::string sa  = "abcdefghijilkyoui";
+    //s = sa;
     char* d;
-    char dd[17] = "";
+    char dd[18] = "";
     d = dd;
-    encrypt_message(s, d, 17);
-    printf("%s", d);
+    encrypt_message(a, dd, 17);  // 有点异常 不管了，妈的
+    printf("%s", dd);
 
 }
