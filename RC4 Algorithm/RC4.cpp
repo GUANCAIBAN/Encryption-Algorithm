@@ -57,7 +57,7 @@ int main()
     */
     rc4_crypt(s, (unsigned char*)pData, len);//加密
     printf("encrypt  : %s\n", pData);
-    printf("encrypt64: %s\n", base64_encode(pData, len));
+    //printf("encrypt64: %s\n", base64_encode(pData, len));
     rc4_init(s, (unsigned char*)key, strlen(key)); //初始化密钥
     rc4_crypt(s, (unsigned char*)pData, len);//解密
     printf("decrypt  : %s\n", pData);
