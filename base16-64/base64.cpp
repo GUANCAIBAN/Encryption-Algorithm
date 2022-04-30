@@ -78,11 +78,17 @@ unsigned char* base64_decode(unsigned char* code)
     res[str_len] = '\0';
 
     //以4个字符为一位进行解码  
+    // code[i]是输入的字符串的每一位，每四个为1组，所以索引i为+4
+    // code[i]对应的值作为索引到base表中找到该索引的值 - table[code[i]]
+    // 然后是组合（需要移位），然后就形成3个值，所以索引j+3
     for (i = 0, j = 0; i < len - 2; j += 3, i += 4)
     {
-        res[j] = ((unsigned char)table[code[i]]) << 2 | (((unsigned char)table[code[i + 1]]) >> 4); //取出第一个字符对应base64表的十进制数的前6位与第二个字符对应base64表的十进制数的后2位进行组合  
-        res[j + 1] = (((unsigned char)table[code[i + 1]]) << 4) | (((unsigned char)table[code[i + 2]]) >> 2); //取出第二个字符对应base64表的十进制数的后4位与第三个字符对应bas464表的十进制数的后4位进行组合  
-        res[j + 2] = (((unsigned char)table[code[i + 2]]) << 6) | ((unsigned char)table[code[i + 3]]); //取出第三个字符对应base64表的十进制数的后2位与第4个字符进行组合  
+        res[j] = ((unsigned char)table[code[i]]) << 2 | (((unsigned char)table[code[i + 1]]) >> 4); 
+        //取出第一个字符对应base64表的十进制数的前6位与第二个字符对应base64表的十进制数的后2位进行组合  
+        res[j + 1] = (((unsigned char)table[code[i + 1]]) << 4) | (((unsigned char)table[code[i + 2]]) >> 2); 
+        //取出第二个字符对应base64表的十进制数的后4位与第三个字符对应bas464表的十进制数的后4位进行组合  
+        res[j + 2] = (((unsigned char)table[code[i + 2]]) << 6) | ((unsigned char)table[code[i + 3]]); 
+        //取出第三个字符对应base64表的十进制数的后2位与第4个字符进行组合
     }
 
     return res;

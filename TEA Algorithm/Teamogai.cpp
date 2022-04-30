@@ -13,6 +13,7 @@
 #define MX (((z>>6^y<<2) + (y>>3^z<<4)) ^ ((sum^y) + (key[(p&3)^e] ^ z))) 
 #define ROR(x, n) (((x) >> n) & 0xFF) | ((x) << (8 - n) & 0xFF)
 
+// 题目中的码表
 char baseTable[] =
 {
   0x42, 0x42, 0x42, 0x42, 0x42, 0x42, 0x42, 0x42, 0x42, 0x42,
@@ -107,7 +108,7 @@ int main()
         0xF57075EE, 0x5076E678, 0xD4D66A35, 0x95105AB9, 0x1BB04403, 0xB240B959, 0x7B4E261A, 0x23D129D8,
         0xF5E752CD, 0x4EA78F70
     };
-    uint32_t const k[4] = { 116, 111, 114, 97 };
+    uint32_t const k[4] = { 116, 111, 114, 97 }; // 密钥
     int n = 66;
     int i;
 
