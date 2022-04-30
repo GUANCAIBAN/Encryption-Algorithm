@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ed011bdc-3477-4579-b9cf-23d2c1bee42c}</ProjectGuid>
-    <RootNamespace>TEAAlgorithm</RootNamespace>
+    <ProjectGuid>{eeb5f72f-2d1b-40ec-9c2b-321dfbd5f9f2}</ProjectGuid>
+    <RootNamespace>base1664</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Tea.cpp" />
-    <ClCompile Include="Teamogai.cpp" />
+    <ClCompile Include="base64.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tea.h" />
+    <ClInclude Include="base64.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

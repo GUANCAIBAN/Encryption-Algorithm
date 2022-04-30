@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Tea.cpp">
+    <ClCompile Include="base64.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Teamogai.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tea.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="base64.h">
+      <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

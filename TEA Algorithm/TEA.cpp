@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Tea 加密
 void TeaEncrypt(unsigned int* v, unsigned int* key) {
 	// 根据图走一遍，就是这个过程
 	unsigned int v0 = v[0],
@@ -22,6 +23,7 @@ void TeaEncrypt(unsigned int* v, unsigned int* key) {
 	v[1] = v1;
 }
 
+// Tea 解密
 void TeaDecrypt(unsigned int* v, unsigned int* key) {
 	unsigned int v0 = v[0],
 		v1 = v[1],

@@ -33,7 +33,7 @@ void rc4_crypt(unsigned char* s, unsigned char* Data, unsigned long Len) //¼Ó½âÃ
         s[i] = s[j]; //½»»»s[x]ºÍs[y]
         s[j] = tmp;
         t = (s[i] + s[j]) % 256;
-        Data[k] ^= s[t];
+        Data[k] ^= s[t];  // sÊÇÃÜÔ¿Á÷²Ù×÷ºóµÄ½á¹û£¬×îÖÕÊÇÓë ÊäÈëµÄÊı¾İData×öÒ»´ÎÒì»ò£¬ËùÒÔ¿ÉÒÔÔÚ´Ë´¦ÏÂ¶Ï£¬»ñµÃsµÄÖµ£¬Óëflag×÷±È½Ï
     }
 }
 
