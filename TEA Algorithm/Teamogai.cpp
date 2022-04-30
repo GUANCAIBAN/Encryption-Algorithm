@@ -89,7 +89,9 @@ void BaseDecode(unsigned char* flag, int len, unsigned char* input)
         input[j + 2] = ((flag[i + 1] & 0xF) << 2) | (flag[i + 2] & 0xC0) >> 6;
         input[j + 3] = flag[i + 2] & 0x3F;
     }
-    for (i = 0; i < len / 3 * 4; i++)
+    // decode_table表也是通过下边这步骤这么过来的
+    // 所以也跟这一样，可以直接通过这函数，获取解码后的内容
+    for (i = 0; i < len / 3 * 4; i++) 
         input[i] = FindIndex(input[i]);
 }
 

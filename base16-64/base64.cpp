@@ -81,6 +81,8 @@ unsigned char* base64_decode(unsigned char* code)
     // code[i]是输入的字符串的每一位，每四个为1组，所以索引i为+4
     // code[i]对应的值作为索引到base表中找到该索引的值 - table[code[i]]
     // 然后是组合（需要移位），然后就形成3个值，所以索引j+3
+    // table相当于是直接准备好的 要找的索引后的表 参考mogaitea，使用的是再用一个findindex的函数
+    // 找原先的值
     for (i = 0, j = 0; i < len - 2; j += 3, i += 4)
     {
         res[j] = ((unsigned char)table[code[i]]) << 2 | (((unsigned char)table[code[i + 1]]) >> 4); 

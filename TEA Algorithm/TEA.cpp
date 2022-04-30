@@ -77,7 +77,7 @@ void btea(uint32_t* v, int n, uint32_t const key[4])
 	unsigned p, rounds, e;
 	if (n > 1) /* Coding Part */
 	{
-		rounds = 6 + 52 / n;
+		rounds = 6 + 52 / n;  // 这也能算一个特征其实。在f5没变化
 		sum = 0;
 		z = v[n - 1];
 		do
