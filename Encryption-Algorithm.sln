@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ROT13-47", "ROT13-47\ROT13-
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "base16-64", "base16-64\base16-64.vcxproj", "{EEB5F72F-2D1B-40EC-9C2B-321DFBD5F9F2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RSA Algorithm", "RSA Algorithm\RSA Algorithm.vcxproj", "{30060C12-06FE-4A0F-88F1-7AB4A01CB000}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{EEB5F72F-2D1B-40EC-9C2B-321DFBD5F9F2}.Release|x64.Build.0 = Release|x64
 		{EEB5F72F-2D1B-40EC-9C2B-321DFBD5F9F2}.Release|x86.ActiveCfg = Release|Win32
 		{EEB5F72F-2D1B-40EC-9C2B-321DFBD5F9F2}.Release|x86.Build.0 = Release|Win32
+		{30060C12-06FE-4A0F-88F1-7AB4A01CB000}.Debug|x64.ActiveCfg = Debug|x64
+		{30060C12-06FE-4A0F-88F1-7AB4A01CB000}.Debug|x64.Build.0 = Debug|x64
+		{30060C12-06FE-4A0F-88F1-7AB4A01CB000}.Debug|x86.ActiveCfg = Debug|Win32
+		{30060C12-06FE-4A0F-88F1-7AB4A01CB000}.Debug|x86.Build.0 = Debug|Win32
+		{30060C12-06FE-4A0F-88F1-7AB4A01CB000}.Release|x64.ActiveCfg = Release|x64
+		{30060C12-06FE-4A0F-88F1-7AB4A01CB000}.Release|x64.Build.0 = Release|x64
+		{30060C12-06FE-4A0F-88F1-7AB4A01CB000}.Release|x86.ActiveCfg = Release|Win32
+		{30060C12-06FE-4A0F-88F1-7AB4A01CB000}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
