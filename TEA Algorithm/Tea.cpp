@@ -33,41 +33,28 @@ void TeaDecrypt(unsigned int* v, unsigned int* key) {
 	sum -= delta;
 }
 
-//void XTeaEncrypt(unsigned int* v, unsigned int* key) {
-//	unsigned int v0 = v[0],
-//		v1 = v[1],
-//		sum = 0,
-//		delta = 0x9e3779b9;  // 固定常量 算法特征
-//	for (size_t i = 0; i < 32; i++)
-//	{
-//		
-//		v0 += (((v1 << 4) ^ (v1 >> 5)) + v1) ^ (sum + key[sum & 3]); // subkey 
-//		//                                                           后边这部分单看图应该还需要点其他的
-//		sum += delta; // 换到中间了
-//		v1 += (((v0 << 4) ^ (v0 >> 5)) + v1) ^ (sum + key[sum >> 11] & 3);
-//	}
-//	v[0] = v0;
-//	v[1] = v1;
-//}
+void XteaEncrypt(unsigned int* v, unsigned int* key) {
+	unsigned int l = v[0], r = v[1], sum = 0, delta = 0x9e3779b9;
+	for (size_t i = 0; i < 32; i++) {
+		l += (((r << 4) ^ (r >> 5)) + r) ^ (sum + key[sum & 3]);
+		sum += delta;
+		r += (((l << 4) ^ (l >> 5)) + l) ^ (sum + key[(sum >> 11) & 3]);
+	}
+	v[0] = l;
+	v[1] = r;
+}
 
-//void XTeaDecrypt(unsigned int* v, unsigned int* key) {
-//	unsigned int v0 = v[0],
-//		v1 = v[1],
-//		sum = 0,
-//		delta = 0x9e3779b9;  // 固定常量 算法特征
-//	for (size_t i = 0; i < 32; i++)
-//	{
-//
-//		v1 -= (((v0 << 4) ^ (v0 >> 5)) + v1) ^ (sum + key[sum >> 11] & 3); // subkey 
-//		//                                                           后边这部分单看图应该还需要点其他的
-//		sum -= delta; // 换到中间了
-//		v0 += (((v1 << 4) ^ (v1 >> 5)) + v1) ^ (sum + key[sum & 3]);
-//	}
-//	v[0] = v0;
-//	v[1] = v1;
-//}
-// 将其中的一部分直接define了
-// 这个没有理解那个图，那个图比较麻烦。不过总体来说哦 都是一些部分的变化会不同吧。
+void XteaDecrypt(unsigned int* v, unsigned int* key) {
+	unsigned int l = v[0], r = v[1], sum = 0, delta = 0x9e3779b9;
+	sum = delta * 32;
+	for (size_t i = 0; i < 32; i++) {
+		r -= (((l << 4) ^ (l >> 5)) + l) ^ (sum + key[(sum >> 11) & 3]);
+		sum -= delta;
+		l -= (((r << 4) ^ (r >> 5)) + r) ^ (sum + key[sum & 3]);
+	}
+	v[0] = l;
+	v[1] = r;
+}
 
 #define MX (((z >> 5 ^ y << 2) + (y >> 3 ^ z << 4)) ^ ((sum ^ y) + (key[(p & 3) ^ e] ^ z)))
 void btea(uint32_t* v, int n, uint32_t const key[4])
@@ -147,11 +134,12 @@ void btea(uint32_t* v, int n, uint32_t const key[4])
 //	return 1;
 //}
 // 这个是魔改的算法，然后是能直接用的
+// 参数 n-根据v的len决定 v:需要加密的数据 key-密钥
 void mogaiXXTeaDecrypt(int n, uint32_t* v, uint32_t const key[4])
 {
 	uint32_t y, z, sum;
 	unsigned p, rounds, e;
-	uint32_t DELTA = 0x33445566;
+	uint32_t DELTA = 0x9e3779b;
 	rounds = 6 + 52 / n;
 	sum = rounds * DELTA;
 	y = v[0];
