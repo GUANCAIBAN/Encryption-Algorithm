@@ -16,3 +16,7 @@
 /RC4 Algorithm/x64/Release
 /x64/Release
 /base16-64/x64/Release
+/base64other/x64/Debug/base64other.tlog
+/base64other/x64/Debug
+/.vs
+/x64/Debug
